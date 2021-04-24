@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import firebase from 'firebase';
-import firebaseConfig from '../helpers/apiKeys';
-import './App.scss';
+import StudentCard from '../components/StudentCard';
 import StudentForm from '../StudentForm';
 import { getStudents } from '../helpers/data/StudentData';
-import StudentCard from '../components/StudentCard';
-
-firebase.initializeApp(firebaseConfig);
+import './App.scss';
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -14,7 +10,6 @@ function App() {
   useEffect(() => {
     getStudents().then((response) => setStudents(response));
   }, []);
-  console.warn(students);
 
   return (
     <div className='App'>
@@ -29,7 +24,6 @@ function App() {
           handleClick={() => console.warn(`${studentInfo.name}'s teacher is ${studentInfo.teacher}.`)}
         />
       ))}
-
     </div>
   );
 }

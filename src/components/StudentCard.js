@@ -9,16 +9,16 @@ import PropTypes from 'prop-types';
 
 const StudentCard = ({
   name,
-  teacher,
   grade,
+  teacher,
   handleClick
 }) => (
     <Card body>
-          <CardTitle tag="h5">{name}</CardTitle>
-          <CardText>{grade}</CardText>
-          <CardText>{teacher}</CardText>
-          {handleClick ? <Button onClick={handleClick}>Print Student</Button> : '' }
-        </Card>
+      <CardTitle tag="h5">{name}</CardTitle>
+      <CardText>Grade: {grade}</CardText>
+      <CardText>Teacher: {teacher}</CardText>
+      {handleClick ? <Button onClick={handleClick}>Print Student</Button> : '' }
+    </Card>
 );
 
 StudentCard.propTypes = {
