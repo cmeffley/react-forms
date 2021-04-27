@@ -21,4 +21,21 @@ const addStudent = (student) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export { addStudent, getStudents };
+const deleteStudent = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/students/${firebaseKey}.json`)
+    .then(() => getStudents().then((studentArray) => resolve(studentArray))) // shorthand: .then((resolve)) instead of adding studentArray since you know what you're getting back
+    .catch((error) => reject(error));
+});
+
+const updateStudent = (student) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/students/${student.firebaseKey}.json`, student)
+    .then(() => getStudents()).then((studentArray) => resolve(studentArray))
+    .catch((error) => reject(error));
+});
+
+export {
+  addStudent,
+  getStudents,
+  deleteStudent,
+  updateStudent
+};
