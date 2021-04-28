@@ -5,7 +5,7 @@ import '../App/App.scss';
 
 function Students({ students, setStudents }) {
   return (
-    <div className='App'>
+    <div className='card-container'>
       <hr/>
       {students.map((studentInfo) => (
         <StudentCard
