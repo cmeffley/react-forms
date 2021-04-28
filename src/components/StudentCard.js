@@ -7,7 +7,7 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { deleteStudent } from '../helpers/data/StudentData';
-import StudentForm from '../StudentForm';
+import StudentForm from './StudentForm';
 
 const StudentCard = ({
   firebaseKey,

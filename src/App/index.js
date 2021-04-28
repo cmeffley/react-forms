@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import StudentCard from '../components/StudentCard';
-import StudentForm from '../StudentForm';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Navbar from '../components/NavBar';
+import Routes from '../helpers/Routes';
 import { getStudents } from '../helpers/data/StudentData';
-import './App.scss';
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -12,23 +12,15 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
-      <StudentForm
-        formTitle='Form Title'
-        setStudents={setStudents}
-      />
-      <hr/>
-      {students.map((studentInfo) => (
-        <StudentCard
-          key={studentInfo.firebaseKey}
-          firebaseKey={studentInfo.firebaseKey}
-          name={studentInfo.name}
-          teacher={studentInfo.teacher}
-          grade={Number(studentInfo.grade)}
+    <>
+      <Router>
+        <Navbar />
+        <Routes
+          students={students}
           setStudents={setStudents}
         />
-      ))}
-    </div>
+      </Router>
+    </>
   );
 }
 

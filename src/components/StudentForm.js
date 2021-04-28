@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { addStudent, updateStudent } from './helpers/data/StudentData';
+import { addStudent, updateStudent } from '../helpers/data/StudentData';
 
 const StudentForm = ({
   formTitle,
