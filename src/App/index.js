@@ -14,6 +14,7 @@ function App() {
     getStudents().then((response) => setStudents(response));
   }, []);
 
+  // SETTING THE USER
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => { // authed is a taco
       if (authed) {
